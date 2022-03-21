@@ -12,8 +12,8 @@ let lucky_item = {
     }
 }
 
-let result = document.getElementById('result');
-let transactionId = document.getElementById('transactionId');
+result = document.getElementById('result');
+transactionId = document.getElementById('transactionId');
 result.innerHTML = lucky_item.getItem(); 
 transactionId.innerHTML = 'No:' + Date.now();
 
