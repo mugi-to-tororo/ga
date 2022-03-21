@@ -15,11 +15,21 @@ let lucky_item = {
 let result = document.getElementById('result');
 let transactionId = document.getElementById('transactionId');
 
-// ラッキーアイテムと抽選日時をグローバル変数に格納（GTMに渡す用にも使うので）
-Lucky_Item = lucky_item.getItem(); 
-TransactionId =  'No:' + Date.now();
+let ResultItem =  lucky_item.getItem();
+let TransactionID =  'No:' + Date.now();
 
-result.innerHTML = Lucky_Item; 
-transactionId.innerHTML = TransactionId;
+result.innerHTML =  ResultItem;
+transactionId.innerHTML = TransactionID;
+
+// Google Tag Manager dataLayer
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+    'transactionId': TransactionID,
+    'transactionTotal': 1,
+    'name': ResultItem,
+    'sku': ResultItem,
+    'price': 1000,
+    'quantity': 1
+})
 
 }
