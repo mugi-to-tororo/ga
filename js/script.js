@@ -11,10 +11,15 @@ let lucky_item = {
         return items[Math.floor(Math.random() * items.length)];
     }
 }
+// ラッキーアイテムと抽選日時（トランザクションIDとして使用する）を挿入する位置を取得
+let result = document.getElementById('result');
+let transactionId = document.getElementById('transactionId');
 
-result = document.getElementById('result');
-transactionId = document.getElementById('transactionId');
-result.innerHTML = lucky_item.getItem(); 
-transactionId.innerHTML = 'No:' + Date.now();
+// ラッキーアイテムと抽選日時をグローバル変数に格納（GTMに渡す用にも使うので）
+Lucky_Item = lucky_item.getItem(); 
+TransactionId =  'No:' + Date.now();
+
+result.innerHTML = Lucky_Item; 
+transactionId.innerHTML = TransactionId;
 
 }
